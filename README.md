@@ -13,3 +13,4 @@ project from udemy course
 
     still learning
     (2-4-20, express server and basic html/css)
+    (3-4-20, access api from browser; deployment left)
