@@ -19,5 +19,5 @@ project from udemy course
 
     (4-4-20)
     deployment complete
-
+    
     check app on: https://hansy-weatherapp.herokuapp.com/
