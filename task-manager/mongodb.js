@@ -1,0 +1,30 @@
+// CRUD create read update delete
+const mongodb = require('mongodb')
+const MongoClient = mongodb.MongoClient
+const ObjectID = mongodb.ObjectID
+
+const connectionURL = 'mongodb://127.0.0.1:27017'
+const databaseName = 'task-manager'
+
+MongoClient.connect(connectionURL, { useNewUrlParser: true}, (error,client)=>{
+    if(error){
+        return console.log('Unable to connect to database!')
+    }
+
+    const db = client.db(databaseName)
+
+   
+
+    db.collection('tasks').findOne({_id: new ObjectID("5e8cdd18f44c4756a8d37fbb")}, (error,res)=>{
+        if(error){
+            return console.log('Unable to find')
+        }
+
+        console.log(res)
+    })
+
+    db.collection('tasks').find({completed: true}).toArray((error,res)=>{
+        console.log(res)
+    })
+
+})
