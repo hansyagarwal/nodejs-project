@@ -13,18 +13,49 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true}, (error,client)=>{
 
     const db = client.db(databaseName)
 
-   
+    //update
+   const updatePromise = db.collection('users').updateOne({
+       _id: new ObjectID("5e8cc64b0134312044e73416")
+   }, {
+       $inc: {
+           age: 1
+       }
+   })
+   updatePromise.then((result)=>{
+       console.log(result)
+   }).catch((error)=>{ 
+    console.log(error)
+   })
 
-    db.collection('tasks').findOne({_id: new ObjectID("5e8cdd18f44c4756a8d37fbb")}, (error,res)=>{
-        if(error){
-            return console.log('Unable to find')
+    db.collection('tasks').updateMany({
+        completed: false
+    }, {
+        $set: {
+            completed: true
         }
-
-        console.log(res)
+    }).then((result)=>{
+        console.log(result.modifiedCount)
+    }).catch((error)=>{
+        console.log(error)
     })
 
-    db.collection('tasks').find({completed: true}).toArray((error,res)=>{
-        console.log(res)
+
+    //delete
+    db.collection('users').deleteMany({
+        age: 27
+    }).then((result)=>{
+        console.log(result)
+    }).catch((error)=>{
+        console.log(error)
     })
+
+    db.collection('tasks').deleteOne({
+        description: 'do chores'
+    }).then((result)=>{
+        console.log(result)
+    }).catch((error)=>{
+        console.log(error)
+    })
+
 
 })
