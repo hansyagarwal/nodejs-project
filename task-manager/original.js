@@ -95,3 +95,69 @@
             res.status(400).send(error)
         })
     })
+
+
+    const multer = require('multer')
+    const upload = multer({
+    dest: 'images',
+    limits: {
+        fileSize: 1000000
+    },
+    fileFilter(req,file, cb) {
+        if(!file.originalname.match(/\.(doc|docx)$/)) {
+            return cb(new Error('Please upload a word document'))
+        }
+        cb(undefined,true)
+        // cb(new Error('File must be a PDF'))
+        // cb(undefined, true)
+        // cb(undefined, false)
+
+
+    }
+})
+const errorMiddleware = (req,res,next)=> {
+    throw new Error('From middleware')
+}
+
+app.post('/upload', upload.single('upload'), (req,res)=>{
+    res.send()
+}, (error,req,res,next)=>{
+    res.status(400).send({error: error.message})
+})
+
+// app.use((req,res,next)=>{
+//     if(req.method == 'GET') {
+//         res.send('GET request are disabled')
+//     }else {
+//         next()
+//     }
+// })
+
+// app.use((req,res,next)=>{
+//     if(req) {
+//         res.send('Site under maintenance')
+//         res.status(503)
+//     }
+// })
+
+
+const me = new User({
+    name: '  Aryan   ',
+    email: 'HANSY.agarwal@GMAIL.com  ',
+    password: 'password'
+})
+
+me.save().then((me)=>{
+    console.log(me)
+}).catch((error)=>{
+    console.log('Error!',error)
+})
+
+const t = new Tasks({
+    Description: '   get groceries            '
+})
+t.save().then((t)=>{
+    console.log(t)
+}).catch((error)=>{
+    console.log('Error!',error)
+})
