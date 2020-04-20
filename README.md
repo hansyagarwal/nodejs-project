@@ -27,5 +27,13 @@ project from udemy course
     (13-4-20, mongodb,mongoose,restapi)
     
     http requests
+
+    (20-4-20: sorting,pagination, file uploads, sending emails)
+
+    (21-4-20: testing task-manager app using jest framework)
+
+    proj complete
+    
+    check proj on: https://hansy-task-manager.heroku.com/ (no front end, you have to figure out on your own)
      
      
