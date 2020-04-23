@@ -35,5 +35,7 @@ project from udemy course
     proj complete
     
     check proj on: https://hansy-task-manager.heroku.com/ (no front end, you have to figure out on your own)
-     
-     
+    
+5.  chat-app
+    
+    (23-04-20, basic websocket through console)
