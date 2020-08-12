@@ -39,3 +39,11 @@ project from udemy course
 5.  chat-app
     
     (23-04-20, basic websocket through console)
+
+    broadcast,location,acknowledge,button states and render messages
+
+    timestamps,css,rooms
+
+    store and track users,render user list,autoscroll
+
+    deployment complete, check app at https://comstation.herokuapp.com/
